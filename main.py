@@ -30,18 +30,7 @@ logging.basicConfig(level=config.LOG_LEVEL)
 """start"""
 
 
-@app.on_message(command(['start', 'help']))
-@language
-@handle_error
-async def start(_, message: Message, lang):
-    await app.send_message(message.chat.id, lang['start'].replace('<prefix>', config.PREFIXES[0]))
 
-"""ping"""
-
-
-@app.on_message(command('ping'))
-async def ping(_, message: Message):
-    await message.reply_text(f'`{await tgcalls.ping}ms`')
 
 """play"""
 
